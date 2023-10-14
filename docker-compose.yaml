@@ -1,0 +1,26 @@
+version: '3'
+services:
+  zimbra:
+    image: "jorgedlcruz/zimbra"
+    ports:
+      - "25:25"
+      - "80:80"
+      - "443:443"
+      - "465:465"
+      - "587:587"
+      - "110:110"
+      - "143:143"
+      - "993:993"
+      - "995:995"
+      - "7071:7071"
+    environment:
+      - PASSWORD=12345678
+    volumes:
+      - /opt/zimbra
+    hostname: mail.jin.mil
+    domainname: jin.mil
+    networks:
+      - zimbranet
+networks:
+  zimbranet:
+    driver: bridge
